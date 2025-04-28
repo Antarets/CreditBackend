@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/create-users.yaml
+  - include:
+      file: db/changelog/changes/create-loan-applications.yaml
+  - include:
+      file: db/changelog/changes/create-loans.yaml
+  - include:
+      file: db/changelog/changes/create-payments.yaml

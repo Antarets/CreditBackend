@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: postgres
+      changes:
+        - createTable:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: loan_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: payment_date
+                  type: DATE
+              - column:
+                  name: amount
+                  type: DECIMAL(15,2)
+        - addForeignKeyConstraint:
+            constraintName: fk_payments_loan
+            baseTableName: payments
+            baseColumnNames: loan_id
+            referencedTableName: loans
+            referencedColumnNames: id
+            onDelete: CASCADE
